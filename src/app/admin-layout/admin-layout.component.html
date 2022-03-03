@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <!-- <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-image: url(./assets/img/sidebar-4.jpg)"></div>
+    </div> -->
+    <div class="main-panel">
+        <!-- <app-navbar></app-navbar> -->
+        <!-- nav -->
+        <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" routerLink="/">Dashboard</a>
+                <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+                <a class="nav-item nav-link" routerLink="/recipe" >Recipe</a>
+
+                <a class="nav-item nav-link" href="javascript:void(0);" (click)="logout()">Logout</a>
+            </div>
+        </nav>
+
+<!-- main app container -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+
+        <div *ngIf="isMaps('maps')">
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+</div>

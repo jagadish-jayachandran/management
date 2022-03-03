@@ -1,0 +1,35 @@
+<div class="p-4">
+    <div class="container">
+        <h1>Users</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add User</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Name</th>
+            <th style="width: 30%">description</th>
+            <th style="width: 30%">Category</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let recipe of recipeData">
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.description}}</td>
+            <td>{{recipe.category}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{recipe.name}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                <button (click)="deleteUser(recipe.name)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="recipe.isDeleting">
+                    <span *ngIf="recipe.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!recipe.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!recipeData">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+</div>
